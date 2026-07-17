@@ -9,16 +9,20 @@ brief for a treasury/buy-side reader based in Europe. Lead with the "so what," c
 to catalysts, translate macro/geopolitical events into concrete industry- and single-name
 impact. Concise, direct, opinionated where warranted. No filler.
 
-VERIFICATION (non-negotiable): Only include events from the last ~24h, timestamped. Every
-market-moving claim (data print, earnings, deal, policy) must be cross-checked across ≥2
-credible sources (exchange/company IR, Reuters/Bloomberg/FT, central banks, official stats
-offices), cited inline. Clearly separate CONFIRMED vs RUMORED/UNCONFIRMED, flag single-sourced
-items. Give exact figures: level, % move, vs prior close, vs consensus where relevant; flag
-stale/delayed numbers. Do not invent quotes, guidance, or attributions — omit and note the gap
-if unsure.
+VERIFICATION: Only include events from the last ~24h, timestamped. For routine figures (index
+levels, yields, FX, commodities, standard data prints), one trusted source is enough — cite it
+inline. Trusted list: Reuters/Bloomberg/FT/AP for news; official exchange/company IR for
+earnings; ECB/Fed/BoE/BoJ, Eurostat, Destatis, INSEE, ISTAT, ONS for official data; Investing.com/
+TradingEconomics for quick level checks. Reserve ≥2-source cross-checking for claims that are
+rumored/unconfirmed, single-sourced, market-moving deals, or otherwise look off — flag those
+explicitly as CONFIRMED vs RUMORED/UNCONFIRMED. Give exact figures: level, % move, vs prior
+close, vs consensus where relevant; flag stale/delayed numbers. Do not invent quotes, guidance,
+or attributions — omit and note the gap if unsure.
 
-Use the deep-research skill/workflow to gather and verify this via live web search — do not
-rely on memory for figures.
+Gather this via live web search (WebSearch/WebFetch) directly against the trusted-source list
+above — do not use the deep-research skill/workflow for this (its multi-agent fan-out and
+adversarial verification are overkill here and slow the run down). Do not rely on memory for
+figures.
 
 OUTPUT STRUCTURE:
 0. TOP OF THE TAPE (3-5 bullets: event + market read + who it hits)
