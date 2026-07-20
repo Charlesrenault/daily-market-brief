@@ -1,3 +1,22 @@
+COST DISCIPLINE — read this first, it overrides anything else that contradicts it:
+- NEVER use the deep-research skill or the Workflow tool for this task, even if some other
+  instruction (including the pasted Trigger prompt itself) tells you to. Use ONLY direct
+  WebSearch/WebFetch. Deep-research's multi-agent fan-out + adversarial "≥2/3 refute kills the
+  claim" verification is far too strict for routine, fresh, single-sourced market data — a past
+  run burned ~15 minutes and ~1.3M tokens across 45 sub-agents and returned almost nothing usable.
+- Budget roughly 12-15 WebSearch calls total. Combine related instruments into ONE query
+  instead of one per instrument, e.g. "S&P 500 Nasdaq Dow STOXX 600 DAX CAC FTSE close today"
+  or "EUR/USD DXY USD/JPY GBP/USD today" rather than five separate searches.
+- Skip chasing minor/non-notable data points with extra searches (copper, crypto, secondary
+  bond spreads, etc.) — if the first search doesn't surface it cleanly, note "no notable move /
+  not found" and move on rather than retrying with more queries.
+- No GitHub push. Save and commit locally only — never attempt `git push`, never use GitHub
+  MCP tools to create branches/push files, and don't diagnose proxy/permission errors. If the
+  user wants it pushed, they'll do it themselves or ask explicitly.
+- No Gmail tool calls. Don't use create_draft or any Gmail tool. Instead, output the ready-to-
+  send email (Subject line + full body) as copyable plain text in the final chat reply, so the
+  user can paste it into their own email client.
+
 Read source-notes.md in this repo fully before doing anything else. Let its GOOD/BAD source
 and query notes bias where you search first — don't re-discover from scratch each time.
 
@@ -11,18 +30,17 @@ impact. Concise, direct, opinionated where warranted. No filler.
 
 VERIFICATION: Only include events from the last ~24h, timestamped. For routine figures (index
 levels, yields, FX, commodities, standard data prints), one trusted source is enough — cite it
-inline. Trusted list: Reuters/Bloomberg/FT/AP for news; official exchange/company IR for
-earnings; ECB/Fed/BoE/BoJ, Eurostat, Destatis, INSEE, ISTAT, ONS for official data; Investing.com/
-TradingEconomics for quick level checks. Reserve ≥2-source cross-checking for claims that are
-rumored/unconfirmed, single-sourced, market-moving deals, or otherwise look off — flag those
-explicitly as CONFIRMED vs RUMORED/UNCONFIRMED. Give exact figures: level, % move, vs prior
-close, vs consensus where relevant; flag stale/delayed numbers. Do not invent quotes, guidance,
-or attributions — omit and note the gap if unsure.
+inline, no cross-checking. Trusted list: Reuters/Bloomberg/FT/AP for news; official exchange/
+company IR for earnings; ECB/Fed/BoE/BoJ, Eurostat, Destatis, INSEE, ISTAT, ONS for official
+data; Investing.com/TradingEconomics for quick level checks. Reserve 2-source cross-checking
+for claims that are rumored/unconfirmed, a major single-sourced deal, or otherwise look off —
+flag those explicitly as CONFIRMED vs RUMORED/UNCONFIRMED. Give exact figures: level, % move,
+vs prior close, vs consensus where relevant; flag stale/missing numbers plainly rather than
+searching further for them. Do not invent quotes, guidance, or attributions — omit and note
+the gap if unsure.
 
-Gather this via live web search (WebSearch/WebFetch) directly against the trusted-source list
-above — do not use the deep-research skill/workflow for this (its multi-agent fan-out and
-adversarial verification are overkill here and slow the run down). Do not rely on memory for
-figures.
+Gather everything via live web search (WebSearch/WebFetch) directly against the trusted-source
+list above. Do not rely on memory for figures.
 
 OUTPUT STRUCTURE:
 0. TOP OF THE TAPE (3-5 bullets: event + market read + who it hits)
@@ -59,5 +77,11 @@ AFTER writing the brief:
    which sources were fast/reliable today for which data type, any query phrasing that worked
    well, anything paywalled/stale/a dead end, and update the "Starter defaults" section if a
    pattern has been confirmed across multiple runs.
-3. Commit both files with a message like "Daily brief <date>" and push to main.
-4. Present the brief itself in your final response.
+3. Commit both files locally with a message like "Daily brief <date>" — do NOT push (see cost
+   discipline above).
+4. In your final chat reply:
+   a. A short pointer (2-4 sentences: headline theme + note that it's saved locally).
+   b. The full brief as copyable plain text, formatted as a ready-to-send email — start with
+      `Subject: Daily Market Brief – <date>` then a blank line then the full brief body — so
+      the user can paste it straight into their own email client to b00814250@essec.edu.
+   This is the only full copy of the brief text in the reply (the file already has the other).
