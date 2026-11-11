@@ -27,4 +27,12 @@ bias which sources you hit first and which queries you use.
 
 ## Entries
 
-(none yet — first run should add one here)
+### 2026-11-11 (first run)
+- GOOD: Yahoo Finance / TheStreet / Motley Fool / Washington Post for US index closing levels — query "stock market today November 10 2026 Wall Street close" on extended search returned exact closing table (S&P, Dow, Nasdaq). Standard search was too noisy with mixed-year results.
+- GOOD: Applied Materials IR (appliedmaterials.com/newsroom) for official Q3 FY2026 segment data. SEC-API had a thorough breakdown of China revenue share. TIKR blog useful for valuation context and price history, though two articles had conflicting price levels ($333 vs $596 — the $333 was more recent).
+- BAD: Standard WebSearch for European index levels returned undated/mixed results. Need to try "site:marketscreener.com" or "site:investing.com" with explicit dates on extended mode next time.
+- BAD: Asian market closes (Nikkei/HSI/CSI) not findable for the exact date. Try Reuters Asia market report or CNBC Asia next time.
+- BAD: Bond yields (Bund, BTP-Bund, OAT, Gilt) very hard to find for specific dates. Tradeweb snapshots only surfaced for Sept 2026. Try "site:tradeweb.com" or "site:tradingeconomics.com" with "November 2026" next time.
+- GOOD: FXStreet for FX levels and macro calendar context — had EUR/USD, GBP/USD, USD/JPY for recent dates. Newsquawk for intraday headlines and commodity snapshots.
+- GOOD: Barron's/Morningstar for earnings calendar and season summary (90% reported, 29% Y/Y growth). Digrin.com had a detailed daily earnings calendar.
+- Spotlight source: Applied Materials IR press release (official) for segment data; TIKR blog for price/valuation context; SEC-API for China revenue analysis. Logged AMAT 2026-11-11 in spotlight-log.md.
